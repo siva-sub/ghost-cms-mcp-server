@@ -86,7 +86,7 @@ describe('PostTools', () => {
       mockClient.getPosts.mockRejectedValue(error);
       
       await expect(postTools.getHandler(handler)({}))
-        .rejects.toThrow('Ghost API error: API Error');
+        .rejects.toThrow('Server error: API Error. Please try again later.');
     });
   });
 
@@ -114,7 +114,7 @@ describe('PostTools', () => {
 
     it('should require either id or slug', async () => {
       await expect(postTools.getHandler(handler)({}))
-        .rejects.toThrow('Either id or slug is required');
+        .rejects.toThrow('One of id, slug is required');
     });
 
     it('should handle not found errors', async () => {

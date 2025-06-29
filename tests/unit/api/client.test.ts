@@ -14,7 +14,7 @@ describe('GhostAPIClient', () => {
     mockConfig = {
       url: 'https://test.ghost.io',
       adminApiKey: '1234567890abcdef12345678:1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef',
-      contentApiKey: 'test-content-key',
+      contentApiKey: '1234567890abcdef1234567890',
     };
     
     client = new GhostAPIClient(mockConfig);
