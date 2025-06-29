@@ -1,11 +1,16 @@
 # Ghost CMS MCP Server
 
-![License](https://img.shields.io/badge/license-MIT-blue.svg)
-![Node.js Version](https://img.shields.io/badge/node-%3E%3D16.0.0-brightgreen.svg)
-![Test Coverage](https://img.shields.io/badge/coverage-80%25-brightgreen.svg)
-![TypeScript](https://img.shields.io/badge/TypeScript-5.0+-blue.svg)
+[![NPM Version](https://img.shields.io/npm/v/ghost-cms-mcp-server?style=flat-square&color=blue)](https://www.npmjs.com/package/ghost-cms-mcp-server)
+[![License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](https://github.com/siva-sub/ghost-cms-mcp-server/blob/main/LICENSE)
+[![Node.js Version](https://img.shields.io/badge/node-%3E%3D18.0.0-brightgreen.svg?style=flat-square)](https://nodejs.org/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.0+-blue.svg?style=flat-square)](https://www.typescriptlang.org/)
+[![CI Status](https://img.shields.io/github/actions/workflow/status/siva-sub/ghost-cms-mcp-server/ci.yml?branch=main&style=flat-square)](https://github.com/siva-sub/ghost-cms-mcp-server/actions)
+[![Downloads](https://img.shields.io/npm/dm/ghost-cms-mcp-server?style=flat-square&color=green)](https://www.npmjs.com/package/ghost-cms-mcp-server)
+[![GitHub Stars](https://img.shields.io/github/stars/siva-sub/ghost-cms-mcp-server?style=flat-square&color=yellow)](https://github.com/siva-sub/ghost-cms-mcp-server)
 
 A comprehensive **Model Context Protocol (MCP) server** for Ghost CMS that provides full automation capabilities for Ghost blogs through AI assistants like Claude Desktop, Cursor, and other MCP-compatible clients.
+
+> **Developed by [Sivasubramanian Ramanathan](https://github.com/siva-sub)** - Showcasing enterprise-grade TypeScript development, API integration, and modern tooling practices.
 
 ## ✨ Features
 
@@ -15,9 +20,20 @@ A comprehensive **Model Context Protocol (MCP) server** for Ghost CMS that provi
 - 🎯 **Bulk Operations** - Efficient mass updates and deletions
 - 📝 **Content Management** - Full CRUD for posts, pages, members, and more
 - 🏷️ **Rich Metadata** - SEO optimization, social media, and custom fields
-- 🧪 **Test-Driven Development** - Comprehensive test suite with 80%+ coverage
+- 🧪 **Test-Driven Development** - Comprehensive test suite with Jest
 - 📊 **TypeScript** - Full type safety and IntelliSense support
 - 🔄 **Real-time Sync** - Instant updates and conflict resolution
+- 🏗️ **Production Ready** - CI/CD pipeline, Docker support, NPM published
+
+## 🛠️ Technical Stack
+
+- **Runtime**: Node.js 18+ with ES Modules
+- **Language**: TypeScript 5.0+ with strict type checking
+- **Testing**: Jest with ES modules support and custom matchers
+- **Linting**: ESLint with TypeScript rules and Prettier
+- **Build**: TypeScript compiler with declaration maps
+- **CI/CD**: GitHub Actions with multi-version testing
+- **Package Management**: NPM with proper semver and engines
 
 ## 📦 Installation
 
@@ -25,7 +41,7 @@ A comprehensive **Model Context Protocol (MCP) server** for Ghost CMS that provi
 
 #### NPM (Recommended)
 ```bash
-npm install -g @ghost-cms/mcp-server
+npm install -g ghost-cms-mcp-server
 ```
 
 #### For Claude Desktop
@@ -33,14 +49,14 @@ npm install -g @ghost-cms/mcp-server
 **macOS/Linux:**
 ```bash
 # Install package
-npm install -g @ghost-cms/mcp-server
+npm install -g ghost-cms-mcp-server
 
 # Add to Claude Desktop config
 echo '{
   "mcpServers": {
     "ghost-cms": {
       "command": "npx",
-      "args": ["-y", "@ghost-cms/mcp-server"],
+      "args": ["-y", "ghost-cms-mcp-server"],
       "env": {
         "GHOST_URL": "https://your-site.ghost.io",
         "GHOST_ADMIN_API_KEY": "your-admin-key",
@@ -54,14 +70,14 @@ echo '{
 **Windows (PowerShell):**
 ```powershell
 # Install package
-npm install -g @ghost-cms/mcp-server
+npm install -g ghost-cms-mcp-server
 
 # Add to Claude Desktop config
 $config = @{
   mcpServers = @{
     "ghost-cms" = @{
       command = "npx"
-      args = @("-y", "@ghost-cms/mcp-server")
+      args = @("-y", "ghost-cms-mcp-server")
       env = @{
         GHOST_URL = "https://your-site.ghost.io"
         GHOST_ADMIN_API_KEY = "your-admin-key"
@@ -77,13 +93,13 @@ Add-Content -Path "$env:APPDATA\Claude\claude_desktop_config.json" -Value $confi
 #### For Claude Code CLI
 ```bash
 # Linux/macOS/Windows
-claude mcp add ghost-cms -- npx -y @ghost-cms/mcp-server
+claude mcp add ghost-cms -- npx -y ghost-cms-mcp-server
 ```
 
 #### For Cursor IDE
 ```bash
 # Install globally
-npm install -g @ghost-cms/mcp-server
+npm install -g ghost-cms-mcp-server
 
 # Configure in Cursor settings
 # Add MCP server configuration in Settings > Extensions > MCP
@@ -92,8 +108,8 @@ npm install -g @ghost-cms/mcp-server
 ### Manual Installation
 
 ```bash
-git clone https://github.com/ghost-cms/mcp-server.git
-cd mcp-server
+git clone https://github.com/siva-sub/ghost-cms-mcp-server.git
+cd ghost-cms-mcp-server
 npm install
 npm run build
 npm start
@@ -286,8 +302,8 @@ npm run test:watch
 
 ### Local Development
 ```bash
-git clone https://github.com/ghost-cms/mcp-server.git
-cd mcp-server
+git clone https://github.com/siva-sub/ghost-cms-mcp-server.git
+cd ghost-cms-mcp-server
 npm install
 cp .env.example .env
 # Edit .env with your Ghost credentials
@@ -365,15 +381,30 @@ LOG_FILE=ghost.log # Optional file output
 ## 🤝 Community & Support
 
 ### Getting Help
-- 📚 [Documentation](https://github.com/ghost-cms/mcp-server/wiki)
-- 🐛 [Issue Tracker](https://github.com/ghost-cms/mcp-server/issues)
-- 💬 [Discussions](https://github.com/ghost-cms/mcp-server/discussions)
-- 📧 [Email Support](mailto:support@ghost-cms-mcp.dev)
+- 📚 [Documentation](https://github.com/siva-sub/ghost-cms-mcp-server/wiki)
+- 🐛 [Issue Tracker](https://github.com/siva-sub/ghost-cms-mcp-server/issues)
+- 💬 [Discussions](https://github.com/siva-sub/ghost-cms-mcp-server/discussions)
+- 📧 [Email Support](mailto:hello@sivasub.com)
 
 ### Related Projects
 - [Ghost CMS](https://ghost.org) - The headless CMS platform
 - [Model Context Protocol](https://modelcontextprotocol.io) - The protocol specification
 - [Claude Desktop](https://claude.ai) - AI assistant with MCP support
+
+## 👨‍💻 About the Developer
+
+**Sivasubramanian Ramanathan** is a software engineer specializing in TypeScript, Node.js, and modern web technologies. This project demonstrates:
+
+- **Enterprise TypeScript Development**: Strict typing, proper error handling, and scalable architecture
+- **API Integration Excellence**: Complete REST API wrapper with rate limiting and caching
+- **Test-Driven Development**: Comprehensive Jest test suite with custom matchers
+- **DevOps & CI/CD**: GitHub Actions, automated testing, and NPM publishing
+- **Documentation & UX**: Clear API design and extensive documentation
+
+Connect with Siva:
+- 🌐 Website: [sivasub.com](https://sivasub.com)
+- 💼 GitHub: [@siva-sub](https://github.com/siva-sub)
+- 📧 Email: [hello@sivasub.com](mailto:hello@sivasub.com)
 
 ## 📄 License
 
@@ -387,6 +418,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ---
 
-**Built with ❤️ for the Ghost and AI community**
+**Built with precision and attention to detail**
 
-[⭐ Star this repo](https://github.com/ghost-cms/mcp-server) if you find it useful!
+[⭐ Star this repo](https://github.com/siva-sub/ghost-cms-mcp-server) if you find it useful!
