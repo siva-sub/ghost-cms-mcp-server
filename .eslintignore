@@ -1,0 +1,25 @@
+# Build outputs
+dist/
+build/
+*.tsbuildinfo
+
+# Dependencies
+node_modules/
+
+# Test files (they have different rules)
+tests/
+**/*.test.ts
+**/*.spec.ts
+**/__mocks__/
+
+# Coverage
+coverage/
+
+# Config files
+jest.config.js
+*.config.js
+*.config.ts
+
+# Generated files
+*.d.ts
+!src/**/*.d.ts

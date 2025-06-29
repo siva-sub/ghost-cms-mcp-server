@@ -9,7 +9,7 @@ on:
     types: [ published ]
 
 env:
-  NODE_VERSION: '18'
+  NODE_VERSION: '20'
 
 jobs:
   test:
@@ -18,7 +18,7 @@ jobs:
     
     strategy:
       matrix:
-        node-version: [16, 18, 20]
+        node-version: [18, 20, 22]
     
     steps:
       - name: Checkout code
@@ -43,7 +43,7 @@ jobs:
         run: npm run test:coverage
         
       - name: Upload coverage to Codecov
-        if: matrix.node-version == 18
+        if: matrix.node-version == 20
         uses: codecov/codecov-action@v3
         with:
           file: ./coverage/lcov.info
