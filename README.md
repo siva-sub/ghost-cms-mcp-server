@@ -9,7 +9,7 @@
 A comprehensive **Model Context Protocol (MCP) server** for Ghost CMS that provides full automation capabilities for Ghost blogs through AI assistants like Claude Desktop, Cursor, and other MCP-compatible clients.
 
 > **Developed by [Sivasubramanian Ramanathan](https://sivasub.com) | [hello@sivasub.com](mailto:hello@sivasub.com)**  
-> **Product Owner | Innovation Catalyst | FinTech Leader** at Bank for International Settlements Innovation Hub, Singapore  
+> **Product Owner | Innovation Catalyst | FinTech Leader** previously at Bank for International Settlements Innovation Hub, Singapore  
 > 
 > This project demonstrates technical innovation and product thinking skills, bridging the gap between complex technology (Model Context Protocol) and practical business applications (content management automation). Built as a showcase of cross-functional capabilities in product development, from conception to delivery.
 
@@ -176,7 +176,7 @@ This project demonstrates key product development skills:
 
 ## 👨‍💼 About the Creator
 
-**Sivasubramanian Ramanathan** is a Product Owner and Innovation Catalyst at the Bank for International Settlements Innovation Hub in Singapore, specializing in FinTech innovation, CBDC research, and regulatory technology solutions.
+**Sivasubramanian Ramanathan** is a Product Owner and Innovation Catalyst, previously at the Bank for International Settlements Innovation Hub in Singapore, specializing in FinTech innovation, CBDC research, and regulatory technology solutions.
 
 ### Professional Focus Areas:
 - **Product Strategy**: End-to-end product management from conception to delivery
@@ -193,7 +193,7 @@ This project demonstrates key product development skills:
 - 🌐 **Website**: [sivasub.com](https://sivasub.com)
 - 💼 **GitHub**: [@siva-sub](https://github.com/siva-sub)
 - 📧 **Email**: [hello@sivasub.com](mailto:hello@sivasub.com)
-- 📱 **LinkedIn**: [LinkedIn Profile](https://linkedin.com/in/sivasubramanian-ramanathan)
+- 📱 **LinkedIn**: [LinkedIn Profile](https://linkedin.com/in/sivasub987)
 - 📍 **Location**: Singapore
 
 ### Recent Publications:
