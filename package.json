@@ -14,13 +14,13 @@
     "claude",
     "api"
   ],
-  "homepage": "https://github.com/yourusername/ghost-cms-mcp-server#readme",
+  "homepage": "https://github.com/sivasub/ghost-cms-mcp-server#readme",
   "bugs": {
-    "url": "https://github.com/yourusername/ghost-cms-mcp-server/issues"
+    "url": "https://github.com/sivasub/ghost-cms-mcp-server/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/yourusername/ghost-cms-mcp-server.git"
+    "url": "git+https://github.com/sivasub/ghost-cms-mcp-server.git"
   },
   "license": "MIT",
   "author": "Ghost CMS MCP Team",

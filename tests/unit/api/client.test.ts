@@ -13,7 +13,7 @@ describe('GhostAPIClient', () => {
   beforeEach(() => {
     mockConfig = {
       url: 'https://test.ghost.io',
-      adminApiKey: 'test-id:test-secret',
+      adminApiKey: '1234567890abcdef12345678:1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef',
       contentApiKey: 'test-content-key',
     };
     
