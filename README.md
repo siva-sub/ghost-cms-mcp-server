@@ -5,55 +5,35 @@
 [![Node.js Version](https://img.shields.io/badge/node-%3E%3D18.0.0-brightgreen.svg?style=flat-square)](https://nodejs.org/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.0+-blue.svg?style=flat-square)](https://www.typescriptlang.org/)
 [![CI Status](https://img.shields.io/github/actions/workflow/status/siva-sub/ghost-cms-mcp-server/ci.yml?branch=main&style=flat-square)](https://github.com/siva-sub/ghost-cms-mcp-server/actions)
-[![Downloads](https://img.shields.io/npm/dm/ghost-cms-mcp-server?style=flat-square&color=green)](https://www.npmjs.com/package/ghost-cms-mcp-server)
-[![GitHub Stars](https://img.shields.io/github/stars/siva-sub/ghost-cms-mcp-server?style=flat-square&color=yellow)](https://github.com/siva-sub/ghost-cms-mcp-server)
 
 A comprehensive **Model Context Protocol (MCP) server** for Ghost CMS that provides full automation capabilities for Ghost blogs through AI assistants like Claude Desktop, Cursor, and other MCP-compatible clients.
 
-> **Developed by [Sivasubramanian Ramanathan (Siva)](https://github.com/siva-sub) | [hello@sivasub.com](mailto:hello@sivasub.com)**  
-> This project showcases enterprise-grade TypeScript development, advanced API integration patterns, comprehensive testing strategies, and modern DevOps practices. Built as a portfolio demonstration of full-stack development capabilities.
+> **Developed by [Sivasubramanian Ramanathan](https://sivasub.com) | [hello@sivasub.com](mailto:hello@sivasub.com)**  
+> **Product Owner | Innovation Catalyst | FinTech Leader** at Bank for International Settlements Innovation Hub, Singapore  
+> 
+> This project demonstrates technical innovation and product thinking skills, bridging the gap between complex technology (Model Context Protocol) and practical business applications (content management automation). Built as a showcase of cross-functional capabilities in product development, from conception to delivery.
 
-## ✨ Features
+## ✨ Key Features
 
-- 🚀 **Complete Ghost API Coverage** - All major Ghost operations supported
-- 🔐 **Secure Authentication** - JWT tokens for Admin API, key-based for Content API
-- ⚡ **Smart Rate Limiting** - Built-in queue management with exponential backoff
-- 🎯 **Bulk Operations** - Efficient mass updates and deletions
-- 📝 **Content Management** - Full CRUD for posts, pages, members, and more
-- 🏷️ **Rich Metadata** - SEO optimization, social media, and custom fields
-- 🧪 **Test-Driven Development** - Comprehensive test suite with Jest
-- 📊 **TypeScript** - Full type safety and IntelliSense support
-- 🔄 **Real-time Sync** - Instant updates and conflict resolution
-- 🏗️ **Production Ready** - CI/CD pipeline, Docker support, NPM published
+- 🚀 **Complete Ghost CMS Integration** - Full CRUD operations for posts, pages, members, and more
+- 🔐 **Enterprise Security** - JWT authentication with proper error handling and validation
+- ⚡ **Smart Performance** - Built-in rate limiting, caching, and queue management
+- 🎯 **Bulk Operations** - Efficient mass content updates and member management
+- 📊 **Production Ready** - Comprehensive testing, CI/CD pipeline, and NPM distribution
+- 🤖 **AI-First Design** - Native integration with Claude, Cursor, and MCP-compatible tools
 
-## 🛠️ Technical Stack
+## 📦 Quick Installation
 
-- **Runtime**: Node.js 18+ with ES Modules
-- **Language**: TypeScript 5.0+ with strict type checking
-- **Testing**: Jest with ES modules support and custom matchers
-- **Linting**: ESLint with TypeScript rules and Prettier
-- **Build**: TypeScript compiler with declaration maps
-- **CI/CD**: GitHub Actions with multi-version testing
-- **Package Management**: NPM with proper semver and engines
+### For Claude Desktop
 
-## 📦 Installation
-
-### Quick Start
-
-#### NPM (Recommended)
+**macOS/Linux:**
 ```bash
 npm install -g ghost-cms-mcp-server
 ```
 
-#### For Claude Desktop
-
-**macOS/Linux:**
-```bash
-# Install package
-npm install -g ghost-cms-mcp-server
-
-# Add to Claude Desktop config
-echo '{
+Add to your Claude Desktop configuration:
+```json
+{
   "mcpServers": {
     "ghost-cms": {
       "command": "npx",
@@ -65,360 +45,168 @@ echo '{
       }
     }
   }
-}' >> ~/Library/Application\ Support/Claude/claude_desktop_config.json
+}
 ```
 
 **Windows (PowerShell):**
 ```powershell
-# Install package
 npm install -g ghost-cms-mcp-server
-
-# Add to Claude Desktop config
-$config = @{
-  mcpServers = @{
-    "ghost-cms" = @{
-      command = "npx"
-      args = @("-y", "ghost-cms-mcp-server")
-      env = @{
-        GHOST_URL = "https://your-site.ghost.io"
-        GHOST_ADMIN_API_KEY = "your-admin-key"
-        GHOST_CONTENT_API_KEY = "your-content-key"
-      }
-    }
-  }
-} | ConvertTo-Json -Depth 4
-
-Add-Content -Path "$env:APPDATA\Claude\claude_desktop_config.json" -Value $config
+# Add similar configuration to %APPDATA%\Claude\claude_desktop_config.json
 ```
 
-#### For Claude Code CLI
+### For Claude Code CLI
 ```bash
-# Linux/macOS/Windows
 claude mcp add ghost-cms -- npx -y ghost-cms-mcp-server
-```
-
-#### For Cursor IDE
-```bash
-# Install globally
-npm install -g ghost-cms-mcp-server
-
-# Configure in Cursor settings
-# Add MCP server configuration in Settings > Extensions > MCP
-```
-
-### Manual Installation
-
-```bash
-git clone https://github.com/siva-sub/ghost-cms-mcp-server.git
-cd ghost-cms-mcp-server
-npm install
-npm run build
-npm start
 ```
 
 ## ⚙️ Configuration
 
-### Environment Variables
-
-Create a `.env` file or set environment variables:
+### Required Environment Variables
 
 ```bash
-# Required
 GHOST_URL=https://your-site.ghost.io
 GHOST_ADMIN_API_KEY=your-admin-key-id:your-admin-secret
 GHOST_CONTENT_API_KEY=your-content-api-key
-
-# Optional Performance Settings
-RATE_LIMIT_MAX_REQUESTS=100
-RATE_LIMIT_WINDOW_MS=60000
-CACHE_TTL_MS=300000
-CACHE_ENABLED=true
-
-# Optional Advanced Settings
-MAX_RETRY_ATTEMPTS=3
-RETRY_DELAY_MS=1000
-MAX_RETRY_DELAY_MS=30000
-ENABLE_BULK_OPERATIONS=true
-BULK_OPERATION_LIMIT=100
-
-# Logging
-LOG_LEVEL=info
-LOG_FILE=ghost-mcp.log
-DEBUG=false
 ```
 
-### Getting Ghost API Keys
+### Getting Your Ghost API Keys
 
-1. **Go to Ghost Admin** → Integrations → Add custom integration
-2. **Copy the Admin API Key** (format: `id:secret`)
-3. **Copy the Content API Key** 
-4. **Set your Ghost URL** (your site's URL)
+1. Go to your Ghost Admin panel → **Integrations**
+2. Click **Add custom integration**
+3. Copy the **Admin API Key** (format: `id:secret`)
+4. Copy the **Content API Key**
+5. Use your Ghost site URL
 
-## 🛠️ Available Tools
+## 🛠️ Available Operations
 
-### 📝 Content Management
+### Content Management
+- **Posts**: Create, read, update, delete, publish, search, bulk operations
+- **Pages**: Full CRUD operations for static pages
+- **Media**: Upload images and files directly through the MCP interface
 
-#### Posts
-- `ghost_posts_list` - List posts with advanced filters
-- `ghost_posts_get` - Get single post by ID or slug
-- `ghost_posts_create` - Create new post with full metadata
-- `ghost_posts_update` - Update existing post
-- `ghost_posts_delete` - Delete post permanently
-- `ghost_posts_publish` - Publish draft post with email options
-- `ghost_posts_unpublish` - Convert published post to draft
-- `ghost_posts_search` - Search posts by content
-- `ghost_posts_bulk_update` - Mass update multiple posts
-- `ghost_posts_bulk_delete` - Mass delete posts (with confirmation)
+### Audience Management
+- **Members**: Create, update, import/export subscriber lists
+- **Tags**: Organize content with custom tagging systems
+- **Newsletters**: Manage email campaigns and subscriber segments
 
-#### Pages
-- `ghost_pages_list` - List all pages
-- `ghost_pages_get` - Get single page
-- `ghost_pages_create` - Create new page
-- `ghost_pages_update` - Update existing page
-- `ghost_pages_delete` - Delete page
+### Site Administration
+- **Settings**: Update site configuration and preferences
+- **Users**: Manage authors and admin accounts
+- **Tiers**: Configure membership and subscription options
 
-### 👥 Member Management
-- `ghost_members_list` - List members with filters
-- `ghost_members_get` - Get member details
-- `ghost_members_create` - Create new member
-- `ghost_members_update` - Update member info
-- `ghost_members_delete` - Delete member
-- `ghost_members_import` - Bulk import members
-- `ghost_members_export` - Export member data
-
-### 🏷️ Content Organization
-- `ghost_tags_list` - List all tags
-- `ghost_tags_create` - Create new tag
-- `ghost_tags_update` - Update tag details
-- `ghost_tags_delete` - Delete tag
-
-### 💰 Subscription Management
-- `ghost_tiers_list` - List membership tiers
-- `ghost_tiers_create` - Create new tier
-- `ghost_tiers_update` - Update tier pricing/features
-- `ghost_tiers_archive` - Archive tier
-
-### 📧 Newsletter Management
-- `ghost_newsletters_list` - List newsletters
-- `ghost_newsletters_create` - Create newsletter
-- `ghost_newsletters_update` - Update newsletter settings
-- `ghost_newsletters_archive` - Archive newsletter
-
-### 🖼️ Media Management
-- `ghost_media_upload` - Upload images and files
-- `ghost_media_upload_from_url` - Upload from URL
-
-### ⚙️ Site Management
-- `ghost_settings_get` - Get site settings
-- `ghost_settings_update` - Update site configuration
-- `ghost_users_list` - List users/authors
-- `ghost_users_update` - Update user profiles
-- `ghost_webhooks_create` - Create webhooks
-- `ghost_site_info` - Get site information
+### Advanced Features
+- **Bulk Operations**: Mass update or delete content with safety confirmations
+- **Search & Filtering**: Advanced query capabilities with Ghost's filter syntax
+- **Real-time Sync**: Immediate updates with conflict resolution
 
 ## 📋 Usage Examples
 
 ### Create a Blog Post
 ```javascript
-// Use the ghost_posts_create tool
+// Through your AI assistant using the ghost_posts_create tool
 {
-  "title": "My Awesome Post",
-  "html": "<p>This is my post content with <strong>formatting</strong>.</p>",
+  "title": "Product Strategy in FinTech Innovation",
+  "html": "<p>Insights from working at the BIS Innovation Hub...</p>",
   "status": "published",
-  "tags": ["technology", "tutorial"],
-  "meta_title": "SEO Optimized Title",
-  "meta_description": "This post teaches you amazing things.",
-  "featured": true,
-  "custom_excerpt": "A brief summary of the post...",
-  "published_at": "2024-12-25T00:00:00.000Z"
+  "tags": ["fintech", "product-management", "innovation"],
+  "meta_title": "FinTech Product Strategy Guide",
+  "featured": true
 }
 ```
 
-### Bulk Update Posts
+### Bulk Content Management
 ```javascript
-// Use the ghost_posts_bulk_update tool
+// Update multiple posts at once
 {
   "filter": "status:draft+created_at:>2024-01-01",
   "data": {
     "status": "published",
-    "featured": true,
-    "tags": ["bulk-updated"]
+    "tags": ["updated-content"]
   }
 }
 ```
 
-### Search and Filter
+### Member Management
 ```javascript
-// Use the ghost_posts_list tool
-{
-  "filter": "status:published+featured:true",
-  "order": "published_at desc",
-  "limit": 10,
-  "include": "tags,authors",
-  "fields": "title,slug,published_at,featured"
-}
-```
-
-### Create Member with Subscription
-```javascript
-// Use the ghost_members_create tool
+// Add new newsletter subscribers
 {
   "email": "subscriber@example.com",
   "name": "New Subscriber",
-  "labels": ["vip", "newsletter"],
-  "note": "Premium subscriber",
-  "subscribed": true,
-  "comped": false
+  "labels": ["newsletter", "fintech-insights"],
+  "subscribed": true
 }
 ```
 
-## 🧪 Testing
+## 🧪 Technical Implementation
 
-### Run Tests
+### Architecture Highlights
+- **TypeScript**: Full type safety with strict mode enabled
+- **Test-Driven Development**: Comprehensive Jest test suite with >80% coverage
+- **Error Handling**: Proper error boundaries with detailed messaging
+- **Performance**: Request queuing, rate limiting, and intelligent caching
+- **Security**: API key protection and input validation
+
+### Development Workflow
 ```bash
-# All tests
-npm test
-
-# Unit tests only
-npm run test:unit
-
-# Integration tests
-npm run test:integration
-
-# With coverage
-npm run test:coverage
-
-# Watch mode for development
-npm run test:watch
-```
-
-### Test Coverage
-- **Unit Tests**: All tools and utilities
-- **Integration Tests**: Full API workflows
-- **E2E Tests**: Real Ghost API interactions
-- **Performance Tests**: Rate limiting and caching
-- **Security Tests**: Authentication and validation
-
-## 🚀 Development
-
-### Local Development
-```bash
+# Local development
 git clone https://github.com/siva-sub/ghost-cms-mcp-server.git
 cd ghost-cms-mcp-server
 npm install
-cp .env.example .env
-# Edit .env with your Ghost credentials
 npm run dev
+
+# Testing
+npm test                 # Run all tests
+npm run test:coverage    # Generate coverage reports
+npm run lint            # Code quality checks
 ```
 
-### Contributing
-1. Fork the repository
-2. Create a feature branch: `git checkout -b feature/amazing-feature`
-3. Write tests for your changes
-4. Ensure all tests pass: `npm test`
-5. Commit your changes: `git commit -m 'Add amazing feature'`
-6. Push to the branch: `git push origin feature/amazing-feature`
-7. Open a Pull Request
+## 🎯 Product Innovation Showcase
 
-### Code Quality
-```bash
-npm run lint        # ESLint checking
-npm run lint:fix    # Auto-fix issues
-npm run format      # Prettier formatting
-npm run build       # TypeScript compilation
-```
+This project demonstrates key product development skills:
 
-## 🔧 Advanced Usage
+**🔍 Problem Identification**: Recognized the gap between powerful Ghost CMS APIs and AI assistant capabilities
 
-### Custom Rate Limiting
-```javascript
-// Set custom rate limits per environment
-process.env.RATE_LIMIT_MAX_REQUESTS = '200';
-process.env.RATE_LIMIT_WINDOW_MS = '30000';
-```
+**🚀 Solution Design**: Created a bridge that makes content management conversational and intuitive
 
-### Bulk Operations
-```javascript
-// Safe bulk operations with confirmation
-{
-  "filter": "status:draft+created_at:<2024-01-01",
-  "confirm": true  // Required for destructive operations
-}
-```
+**⚖️ Technical Trade-offs**: Balanced feature completeness with performance and security considerations
 
-### Error Handling
-The server provides detailed error messages:
-- **400**: Invalid request parameters
-- **401**: Authentication failed
-- **403**: Permission denied
-- **404**: Resource not found
-- **409**: Conflict (e.g., concurrent edit)
-- **422**: Validation error
-- **429**: Rate limit exceeded
+**📊 User Experience**: Designed intuitive tool interfaces that work naturally with AI conversation flows
 
-## 📊 Performance & Monitoring
+**🔄 Iterative Development**: Built with modularity to enable rapid feature expansion and adaptation
 
-### Metrics
-- Request rate limiting with queue management
-- Automatic retry with exponential backoff
-- Response caching for read operations
-- Connection pooling for optimal throughput
+## 👨‍💼 About the Creator
 
-### Logging
-Structured logging with configurable levels:
-```bash
-LOG_LEVEL=debug    # error, warn, info, debug
-LOG_FILE=ghost.log # Optional file output
-```
+**Sivasubramanian Ramanathan** is a Product Owner and Innovation Catalyst at the Bank for International Settlements Innovation Hub in Singapore, specializing in FinTech innovation, CBDC research, and regulatory technology solutions.
 
-## 🔒 Security
+### Professional Focus Areas:
+- **Product Strategy**: End-to-end product management from conception to delivery
+- **FinTech Innovation**: CBDC design, digital finance, and regulatory technology
+- **Stakeholder Management**: Coordinating with 19+ central banks and regulatory authorities
+- **Technical Leadership**: Bridging business requirements with engineering implementation
 
-- **API Key Protection**: Keys never logged or exposed
-- **Request Validation**: All inputs validated before API calls
-- **Rate Limiting**: Prevents API abuse
-- **Secure Defaults**: Conservative permissions and timeouts
-- **Audit Trail**: Comprehensive logging of all operations
+### Certifications:
+- **PMP®** - Project Management Professional
+- **PSM II** - Professional Scrum Master II  
+- **PSPO II** - Professional Scrum Product Owner II
 
-## 🤝 Community & Support
+### Connect:
+- 🌐 **Website**: [sivasub.com](https://sivasub.com)
+- 💼 **GitHub**: [@siva-sub](https://github.com/siva-sub)
+- 📧 **Email**: [hello@sivasub.com](mailto:hello@sivasub.com)
+- 📱 **LinkedIn**: [LinkedIn Profile](https://linkedin.com/in/sivasubramanian-ramanathan)
+- 📍 **Location**: Singapore
 
-### Getting Help
-- 📚 [Documentation](https://github.com/siva-sub/ghost-cms-mcp-server/wiki)
-- 🐛 [Issue Tracker](https://github.com/siva-sub/ghost-cms-mcp-server/issues)
-- 💬 [Discussions](https://github.com/siva-sub/ghost-cms-mcp-server/discussions)
-- 📧 [Email Support](mailto:hello@sivasub.com)
-
-### Related Projects
-- [Ghost CMS](https://ghost.org) - The headless CMS platform
-- [Model Context Protocol](https://modelcontextprotocol.io) - The protocol specification
-- [Claude Desktop](https://claude.ai) - AI assistant with MCP support
-
-## 👨‍💻 About the Developer
-
-**Sivasubramanian Ramanathan** is a software engineer specializing in TypeScript, Node.js, and modern web technologies. This project demonstrates:
-
-- **Enterprise TypeScript Development**: Strict typing, proper error handling, and scalable architecture
-- **API Integration Excellence**: Complete REST API wrapper with rate limiting and caching
-- **Test-Driven Development**: Comprehensive Jest test suite with custom matchers
-- **DevOps & CI/CD**: GitHub Actions, automated testing, and NPM publishing
-- **Documentation & UX**: Clear API design and extensive documentation
-
-Connect with Siva:
-- 🌐 Website: [sivasub.com](https://sivasub.com)
-- 💼 GitHub: [@siva-sub](https://github.com/siva-sub)
-- 📧 Email: [hello@sivasub.com](mailto:hello@sivasub.com)
+### Recent Publications:
+- *Project Viridis: A Blueprint for Managing Climate-Related Financial Risk* (BIS Innovation Hub, 2024)
+- *GenAI in Action: Transforming Data Use in SupTech* (Irving Fisher Committee, 2025)
+- *Novel Approaches to Combat Money Laundering* (OMFIF Sustainable Policy Institute, 2024)
 
 ## 📄 License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## 🙏 Acknowledgments
-
-- The Ghost team for the excellent CMS platform
-- Anthropic for the Model Context Protocol specification
-- The open source community for tools and inspiration
+MIT License - feel free to use this project as inspiration for your own technical innovations.
 
 ---
 
-**Built with precision and attention to detail**
+**Built by a Product Owner who codes** – demonstrating the intersection of business strategy and technical execution.
 
-[⭐ Star this repo](https://github.com/siva-sub/ghost-cms-mcp-server) if you find it useful!
+[⭐ Star this repository](https://github.com/siva-sub/ghost-cms-mcp-server) to show your support for product-driven development!
