@@ -1,7 +1,7 @@
 import axios, { AxiosInstance, AxiosResponse, AxiosError } from 'axios';
 import GhostAdminAPI from '@tryghost/admin-api';
 import GhostContentAPI from '@tryghost/content-api';
-import NodeCache from 'node-cache';
+// import NodeCache from 'node-cache'; // Will be used for caching in future version
 import PQueue from 'p-queue';
 import { GhostError, RateLimitError } from '../utils/errors.js';
 import { GhostAPIConfig, GhostAPIClientInterface } from './types.js';
@@ -28,12 +28,9 @@ export class GhostAPIClient implements GhostAPIClientInterface {
   private adminApi: any;
   private contentApi: any;
   private axiosClient: AxiosInstance;
-  private cache: NodeCache;
   private requestQueue: PQueue;
-  private config: GhostAPIConfig;
 
   constructor(config: GhostAPIConfig) {
-    this.config = config;
     
     // Parse URL to get the base URL
     const url = new URL(config.url);
@@ -59,11 +56,7 @@ export class GhostAPIClient implements GhostAPIClientInterface {
       timeout: 30000,
     });
 
-    // Initialize cache
-    this.cache = new NodeCache({
-      stdTTL: parseInt(process.env.CACHE_TTL_MS || '300000') / 1000, // Convert ms to seconds
-      checkperiod: 60,
-    });
+    // Note: Cache functionality can be added later for performance optimization
 
     // Initialize request queue
     this.requestQueue = new PQueue({

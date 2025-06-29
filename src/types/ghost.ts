@@ -317,7 +317,8 @@ export interface GhostTheme {
 
 // API Response Types
 
-export interface GhostListResponse<T> {
+export interface GhostListResponse<T = any> {
+  data?: T;
   meta: {
     pagination: {
       page: number;

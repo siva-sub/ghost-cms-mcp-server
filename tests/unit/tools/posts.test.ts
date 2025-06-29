@@ -1,10 +1,8 @@
 import { describe, it, expect, jest, beforeEach } from '@jest/globals';
-import { PostTools } from '../../../src/tools/posts.js';
-import { GhostAPIClient } from '../../../src/api/client.js';
-import { ghostResponses } from '../../fixtures/ghost-responses.js';
-import { GhostError } from '../../../src/utils/errors.js';
-
-jest.mock('../../../src/api/client.js');
+import { PostTools } from '../../../src/tools/posts';
+import { GhostAPIClient } from '../../__mocks__/client';
+import { ghostResponses } from '../../fixtures/ghost-responses';
+import { GhostError } from '../../../src/utils/errors';
 
 describe('PostTools', () => {
   let postTools: PostTools;
@@ -12,13 +10,9 @@ describe('PostTools', () => {
 
   beforeEach(() => {
     jest.clearAllMocks();
-    mockClient = new GhostAPIClient({
-      url: 'https://test.ghost.io',
-      adminApiKey: 'test:secret',
-      contentApiKey: 'test-content',
-    }) as jest.Mocked<GhostAPIClient>;
+    mockClient = new GhostAPIClient() as jest.Mocked<GhostAPIClient>;
     
-    postTools = new PostTools(mockClient);
+    postTools = new PostTools(mockClient as any);
   });
 
   describe('getTools', () => {
