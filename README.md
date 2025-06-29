@@ -10,7 +10,8 @@
 
 A comprehensive **Model Context Protocol (MCP) server** for Ghost CMS that provides full automation capabilities for Ghost blogs through AI assistants like Claude Desktop, Cursor, and other MCP-compatible clients.
 
-> **Developed by [Sivasubramanian Ramanathan](https://github.com/siva-sub)** - Showcasing enterprise-grade TypeScript development, API integration, and modern tooling practices.
+> **Developed by [Sivasubramanian Ramanathan (Siva)](https://github.com/siva-sub) | [hello@sivasub.com](mailto:hello@sivasub.com)**  
+> This project showcases enterprise-grade TypeScript development, advanced API integration patterns, comprehensive testing strategies, and modern DevOps practices. Built as a portfolio demonstration of full-stack development capabilities.
 
 ## ✨ Features
 

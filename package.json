@@ -1,7 +1,7 @@
 {
   "name": "ghost-cms-mcp-server",
-  "version": "1.0.0",
-  "description": "A comprehensive Model Context Protocol (MCP) server for Ghost CMS with full CRUD operations, bulk actions, and advanced features",
+  "version": "1.0.1",
+  "description": "A comprehensive Model Context Protocol (MCP) server for Ghost CMS with full CRUD operations, bulk actions, and advanced features. Developed by Sivasubramanian Ramanathan (Siva) to showcase enterprise-grade TypeScript development and modern API integration skills.",
   "keywords": [
     "mcp",
     "ghost",
