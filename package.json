@@ -23,7 +23,11 @@
     "url": "git+https://github.com/siva-sub/ghost-cms-mcp-server.git"
   },
   "license": "MIT",
-  "author": "Ghost CMS MCP Team",
+  "author": {
+    "name": "Sivasubramanian Ramanathan",
+    "email": "hello@sivasub.com",
+    "url": "https://github.com/siva-sub"
+  },
   "type": "module",
   "engines": {
     "node": ">=18.0.0",

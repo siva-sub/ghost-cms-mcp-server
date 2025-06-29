@@ -54,7 +54,7 @@ const allTools = [
   // ...tagsTools.getTools(),
 ];
 
-server.setRequestHandler(ListToolsRequestSchema, async () => {
+server.setRequestHandler(ListToolsRequestSchema, () => {
   return {
     tools: allTools,
   };

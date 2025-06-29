@@ -434,7 +434,7 @@ export class GhostAPIClient implements GhostAPIClientInterface {
   async uploadMedia(data: any): Promise<AxiosResponse<{ media: Array<{ url: string; ref?: string }> }>> {
     return this.queueRequest(async () => {
       const response = await this.axiosClient.post('/media/upload/', data);
-      return response as AxiosResponse;
+      return response;
     });
   }
 
@@ -464,21 +464,21 @@ export class GhostAPIClient implements GhostAPIClientInterface {
   async getWebhooks(): Promise<AxiosResponse<{ webhooks: any[] }>> {
     return this.queueRequest(async () => {
       const response = await this.axiosClient.get('/webhooks/');
-      return response as AxiosResponse;
+      return response;
     });
   }
 
   async createWebhook(data: any): Promise<AxiosResponse<{ webhooks: any[] }>> {
     return this.queueRequest(async () => {
       const response = await this.axiosClient.post('/webhooks/', { webhooks: [data] });
-      return response as AxiosResponse;
+      return response;
     });
   }
 
   async updateWebhook(id: string, data: any): Promise<AxiosResponse<{ webhooks: any[] }>> {
     return this.queueRequest(async () => {
       const response = await this.axiosClient.put(`/webhooks/${id}/`, { webhooks: [data] });
-      return response as AxiosResponse;
+      return response;
     });
   }
 
@@ -493,7 +493,7 @@ export class GhostAPIClient implements GhostAPIClientInterface {
   async getSite(): Promise<AxiosResponse<{ site: any }>> {
     return this.queueRequest(async () => {
       const response = await this.axiosClient.get('/site/');
-      return response as AxiosResponse;
+      return response;
     });
   }
 }
